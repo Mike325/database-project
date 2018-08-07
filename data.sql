@@ -16,19 +16,19 @@ INSERT INTO MOVIE (NAME, DURATION, COST, INCOME, RELEASE_DATE)
     VALUES ('The Day the Earth Stood Still ', 92, 1200000.00, 1200000.00, 1951-09-17);
 
 INSERT INTO MOVIE (NAME, DURATION, COST, INCOME, RELEASE_DATE)
-    VALUES ('', 0, 0, 0, 0-0-0);
+    VALUES ('Alien', 117, 11000000.00, 104931801.00, 1979-05-25);
 
 INSERT INTO MOVIE (NAME, DURATION, COST, INCOME, RELEASE_DATE)
-    VALUES ('', 0, 0, 0, 0-0-0);
+    VALUES ('La Pianiste', 131, 3000000.00, 9801375.00, 2002-03-28);
 
 INSERT INTO MOVIE (NAME, DURATION, COST, INCOME, RELEASE_DATE)
-    VALUES ('', 0, 0, 0, 0-0-0);
+    VALUES ('Rashomon', 88, 250000.00, 96568.00, 0-0-0);
 
 INSERT INTO MOVIE (NAME, DURATION, COST, INCOME, RELEASE_DATE)
-    VALUES ('', 0, 0, 0, 0-0-0);
+    VALUES ('Night of the Living Dead', 96, 114000.00, 30000000.00, 1968-10-01);
 
 INSERT INTO MOVIE (NAME, DURATION, COST, INCOME, RELEASE_DATE)
-    VALUES ('', 0, 0, 0, 0-0-0);
+    VALUES ('Das Cabinet des Dr. Caligari', 78, 18000.00, 18000.00, 1921-03-19);
 
 -- Director
 --data from themoviedb.org
@@ -48,19 +48,19 @@ INSERT INTO DIRECTORS (NAME, LASTNAME, NATIONALITY)
     VALUES ('Robert', 'Wise', 'USA');
 
 INSERT INTO DIRECTORS (NAME, LASTNAME, NATIONALITY)
-    VALUES ('', '', '');
+    VALUES ('Ridley', 'Scott', 'USA');
 
 INSERT INTO DIRECTORS (NAME, LASTNAME, NATIONALITY)
-    VALUES ('', '', '');
+    VALUES ('Michael', 'Haneke', 'Austria');
 
 INSERT INTO DIRECTORS (NAME, LASTNAME, NATIONALITY)
-    VALUES ('', '', '');
+    VALUES ('Akira', 'Kurosawa', 'Japan');
 
 INSERT INTO DIRECTORS (NAME, LASTNAME, NATIONALITY)
-    VALUES ('', '', '');
+    VALUES ('George', 'A. Romero', 'USA');
 
 INSERT INTO DIRECTORS (NAME, LASTNAME, NATIONALITY)
-    VALUES ('', '', '');
+    VALUES ('Robert', 'Wiene', 'Poland');
 
 
 -- Actor
@@ -96,22 +96,31 @@ INSERT INTO ACTORS (NAME, LASTNAME, NATIONALITY)
     VALUES ('Michael', 'Rennie', 'England');
     
 INSERT INTO ACTORS (NAME, LASTNAME, NATIONALITY)
-    VALUES ('', '', '');
+    VALUES ('Sigourney', 'Weaver', 'USA');
     
 INSERT INTO ACTORS (NAME, LASTNAME, NATIONALITY)
-    VALUES ('', '', '');
+    VALUES ('Isabelle', 'Huppert', 'France');
     
 INSERT INTO ACTORS (NAME, LASTNAME, NATIONALITY)
-    VALUES ('', '', '');
+    VALUES ('Toshirou', 'Mifune', 'Japan');
     
 INSERT INTO ACTORS (NAME, LASTNAME, NATIONALITY)
-    VALUES ('', '', '');
+    VALUES ('Machiko', 'Kyou', 'Japan');
     
 INSERT INTO ACTORS (NAME, LASTNAME, NATIONALITY)
-    VALUES ('', '', '');
+    VALUES ('Masayuki', 'Mori', 'Japan');
     
 INSERT INTO ACTORS (NAME, LASTNAME, NATIONALITY)
-    VALUES ('', '', '');
+    VALUES ('Duane', 'Jones', 'USA');
+        
+INSERT INTO ACTORS (NAME, LASTNAME, NATIONALITY)
+    VALUES ('Judith', 'ODea', 'USA');
+        
+INSERT INTO ACTORS (NAME, LASTNAME, NATIONALITY)
+    VALUES ('Werner', 'Krauss', 'Germany');
+        
+INSERT INTO ACTORS (NAME, LASTNAME, NATIONALITY)
+    VALUES ('Conrad', 'Veidt', 'Germany');
 
 -- TODO:
 
