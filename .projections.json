@@ -38,6 +38,9 @@
     "tables.sql": {
         "type": "Tables"
     },
+    "data.sql": {
+        "type": "Data"
+    },
     "views.sql": {
         "type": "View"
     }
