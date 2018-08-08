@@ -1,3 +1,13 @@
+--Create a database named MOVIES
+CREATE DB MOVIES;
+
+CONNECT TO MOVIES;
+
+CREATE SCHEMA FILM;
+--By setting the SCHEMA as FILM there's no need to refer to the SCHEME on each table creation
+SET SCHEMA = FILM;
+
+
 -- Country
 CREATE TABLE COUNTRY (
     ID      INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
