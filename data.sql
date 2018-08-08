@@ -1,5 +1,5 @@
 --By setting the SCHEMA as FILM there's no need to refer to the SCHEME on each INSERT
-SET SCHEMA = FILM;
+SET SCHEMA = MOVIEINDEX;
 
 -- CLASIFICATION
 INSERT INTO CLASIFICATION (NAME, SHORT_NAME)
@@ -47,7 +47,7 @@ INSERT INTO COUNTRY (NAME)
     VALUES ('England');
 
 INSERT INTO COUNTRY (NAME)
-    VALUES ('France');
+    VALUES ('Poland');
 
 INSERT INTO COUNTRY (NAME)
     VALUES ('Spain');
@@ -60,6 +60,16 @@ INSERT INTO COUNTRY (NAME)
 
 INSERT INTO COUNTRY (NAME)
     VALUES ('Japan');
+
+INSERT INTO COUNTRY (NAME)
+    VALUES ('USA');    
+    
+INSERT INTO COUNTRY (NAME)
+    VALUES ('Hungary');   
+
+INSERT INTO COUNTRY (NAME)
+    VALUES ('Austria');       
+    
 
 -- Gender
 
