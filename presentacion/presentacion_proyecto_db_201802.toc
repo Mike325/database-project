@@ -1,0 +1,4 @@
+\babel@toc {spanish}{}
+\beamer@sectionintoc {1}{Problem\'atica}{2}{0}{1}
+\beamer@sectionintoc {2}{Dise\~no de la base de datos.}{4}{0}{2}
+\beamer@sectionintoc {3}{Implementaci\'on}{6}{0}{3}
