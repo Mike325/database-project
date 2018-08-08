@@ -32,6 +32,9 @@
     "clang-format": {
         "type": "ClangFormat"
     },
+    "*.tex": {
+        "type": "Presentation"
+    },
     "*.sql": {
         "type": "DB2"
     },
