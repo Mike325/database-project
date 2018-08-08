@@ -3,6 +3,7 @@
 
 
 \usepackage{graphicx}%this package allows graphics inclusion
+\usepackage{subcaption}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish, mexico]{babel} %specify document language
 %\usepackage[usenames, dvipsnames]{color}
@@ -72,6 +73,58 @@ db2 DESCRIBE TABLE MOVIEINDEX.MOVIE
 \end{center}
 \end{frame}
 
+
+\begin{frame}{Tablas}
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[scale=0.2]{figures/screenshot_country_data.png}
+        \caption{Country Table}
+
+    \end{subfigure}
+    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
+      %(or a blank line to force the subfigure onto a new line)
+    \begin{subfigure}[b]{0.4\textwidth}
+        \includegraphics[scale=0.2]{figures/screenshot_studio_data.png}
+        \caption{Studio Table}
+
+    \end{subfigure}
+    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
+    %(or a blank line to force the subfigure onto a new line)
+    \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[scale=0.2]{figures/screenshot_director_data.png}
+        \caption{Director Table}
+
+    \end{subfigure}
+    \caption{Tablas en la MOVIESDB parte 1}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Tablas}
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[scale=0.2]{figures/screenshot_gender_data.png}
+        \caption{Gender Table}
+
+    \end{subfigure}
+    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
+      %(or a blank line to force the subfigure onto a new line)
+    \begin{subfigure}[b]{0.4\textwidth}
+        \includegraphics[scale=0.2]{figures/screenshot_actor_data.png}
+        \caption{Actor Table}
+
+    \end{subfigure}
+    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
+    %(or a blank line to force the subfigure onto a new line)
+    \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[scale=0.2]{figures/screenshot_clasification_data.png}
+        \caption{Clasification Table}
+
+    \end{subfigure}
+    \caption{Tablas en la MOVIESDB parte 2}
+\end{figure}
+\end{frame}
 
 
 \end{document}
