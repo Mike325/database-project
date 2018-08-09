@@ -126,6 +126,49 @@ db2 DESCRIBE TABLE MOVIEINDEX.MOVIE
 \end{figure}
 \end{frame}
 
+\section{A implementar}
+\begin{frame}{Vistas}
+	\begin{figure}
 
+		\begin{subfigure}[b]{1\textwidth}
+			\begin{tabular}{|c|c|c|}\hline
+				Country		&		Movie Name		&		Relase Date \\ \hline
+				USA			&		Jurassic Park	&		1993-06-09	\\	\hline
+				Japan		&		Rashomon		&		1950-08-25	\\	\hline
+				$\cdot$ $\cdot$ $\cdot$		&	$\cdot$ $\cdot$ $\cdot$		& $\cdot$ $\cdot$ $\cdot$ \\ \hline
+			\end{tabular}
+			\caption{Vista: Peliculas por paises}
+		\end{subfigure}
+		
+		\begin{subfigure}[b]{1\textwidth}
+		\begin{scriptsize}
+			\begin{tabular}{|p{0.1\textwidth}|p{0.1\textwidth}|p{0.1\textwidth}|p{0.1\textwidth}|p{0.1\textwidth}|p{0.1\textwidth}|p{0.1\textwidth}|p{0.1\textwidth}|}\hline
+
+
+	Name	&	Duration	&	Cost	&	Income	&	Release Date	&	Clasification	&	Studio	&	Director	\\ \hline
+Jurassic Park & 127 & \$63 Millones & \$920.1 Millones & 1993-06-09 &	PG-13 & Universal & Steven Spielberg\\ \hline
+Jurassic Park & 127 & \$63 Millones & \$920.1 Millones & 1993-06-09 &	PG-13 & Universal & Steven Spielberg\\ \hline
+$\cdot$ $\cdot$ $\cdot$		&	$\cdot$ $\cdot$ $\cdot$		& $\cdot$ $\cdot$ $\cdot$  &$\cdot$ $\cdot$ $\cdot$		&	$\cdot$ $\cdot$ $\cdot$		& $\cdot$ $\cdot$ $\cdot$ &$\cdot$ $\cdot$ $\cdot$		&	$\cdot$ $\cdot$ $\cdot$	\\ \hline
+			\end{tabular}
+		\end{scriptsize}
+			\caption{vista1}
+		\end{subfigure}		
+	\end{figure}
+	
+\end{frame}
+
+\begin{frame}{Triggers}
+\begin{itemize}
+\item[1.]Log el usiario de cada insert
+\item[2.]Cuando una pelicula salga de existencia el titulo se agrega a una vista de "Request"
+
+\end{itemize}
+
+\end{frame}
+
+\section{DDL}
+\begin{frame}
+
+\end{frame}
 \end{document}
  
