@@ -90,136 +90,141 @@ INSERT INTO STUDIO (NAME, NATIONALITYID) VALUES ('Disney'      , ( SELECT ID FRO
 INSERT INTO STUDIO (NAME, NATIONALITYID) VALUES ('Pixar'       , ( SELECT ID FROM COUNTRY WHERE NAME = 'USA'));
 INSERT INTO STUDIO (NAME, NATIONALITYID) VALUES ('Dream Works' , ( SELECT ID FROM COUNTRY WHERE NAME = 'USA'));
 
--- Movies
+--By setting the SCHEMA as FILM there's no need to refer to the SCHEME on each INSERT
+SET SCHEMA = MOVIEINDEX;
+
+
+
+--MOVIES
 --data from themoviedb.org
--- INSERT INTO MOVIE ( NAME, DURATION, COST, INCOME, RELEASE_DATE, DIRECTORID, CLASIFICATIONID, COUNTRYID, STUDIOID)
---     VALUES (
---         'Jurassic Park',
---         127,
---         63000000.00,
---         920100000.00,
---         1993-06-09,
---         (SELECT   ID FROM DIRECTOR      WHERE NAME='Steven' and LASTNAME='Spielberg'),
---         (SELECT   ID FROM CLASIFICATION WHERE NAME=''),
---         (SELECT   ID FROM COUNTRY       WHERE NAME=''),
---         (SELECT   ID FROM STUDIO        WHERE NAME='')
--- );
+INSERT INTO MOVIE ( NAME, DURATION, COST, INCOME, RELEASE_DATE, DIRECTORID, CLASIFICATIONID, COUNTRYID, STUDIOID)
+    VALUES (
+        'Jurassic Park',
+        127,
+        63000000.00,
+        920100000.00,
+        '1993-06-09',
+        (SELECT   ID FROM DIRECTOR      WHERE NAME='Steven' and LASTNAME='Spielberg'),
+        (SELECT   ID FROM CLASIFICATION WHERE SHORT_NAME='PG-13'),
+        (SELECT   ID FROM COUNTRY       WHERE NAME='USA'),
+        (SELECT   ID FROM STUDIO        WHERE NAME='Universal')
+);
 --
--- INSERT INTO MOVIE ( NAME, DURATION, COST, INCOME, RELEASE_DATE, DIRECTORID, CLASIFICATIONID, COUNTRYID, STUDIOID
--- )
---     VALUES (
---         'Dracula',
---         72,
---         355000.00,
---         355000,
---         1931-02-12,
---         (SELECT   ID FROM DIRECTOR      WHERE NAME='Steven' and LASTNAME='Spielberg'),
---         (SELECT   ID FROM CLASIFICATION WHERE NAME=''),
---         (SELECT   ID FROM COUNTRY       WHERE NAME=''),
---         (SELECT   ID FROM STUDIO        WHERE NAME='')
--- );
+INSERT INTO MOVIE ( NAME, DURATION, COST, INCOME, RELEASE_DATE, DIRECTORID, CLASIFICATIONID, COUNTRYID, STUDIOID
+)
+    VALUES (
+        'Dracula',
+        72,
+        355000.00,
+        355000,
+        '1931-02-12',
+        (SELECT   ID FROM DIRECTOR      WHERE NAME= 'Tod' and LASTNAME='Browning'),
+        (SELECT   ID FROM CLASIFICATION WHERE SHORT_NAME='PG-13'),
+        (SELECT   ID FROM COUNTRY       WHERE NAME='USA'),
+        (SELECT   ID FROM STUDIO        WHERE NAME='Universal')
+);
 --
--- INSERT INTO MOVIE ( NAME, DURATION, COST, INCOME, RELEASE_DATE, DIRECTORID, CLASIFICATIONID, COUNTRYID, STUDIOID)
---     VALUES (
---         'Godzilla',
---         96,
---         1000000,
---         1500000,
---         1954-12-03,
---         (SELECT   ID FROM DIRECTOR      WHERE NAME='Steven' and LASTNAME='Spielberg'),
---         (SELECT   ID FROM CLASIFICATION WHERE NAME=''),
---         (SELECT   ID FROM COUNTRY       WHERE NAME=''),
---         (SELECT   ID FROM STUDIO        WHERE NAME='')
--- );
+INSERT INTO MOVIE ( NAME, DURATION, COST, INCOME, RELEASE_DATE, DIRECTORID, CLASIFICATIONID, COUNTRYID, STUDIOID)
+    VALUES (
+        'Godzilla',
+        96,
+        1000000,
+        1500000,
+        '1954-12-03',
+        (SELECT   ID FROM DIRECTOR      WHERE NAME='Ishirou' and LASTNAME= 'Honda'),
+        (SELECT   ID FROM CLASIFICATION WHERE SHORT_NAME='PG-13'),
+        (SELECT   ID FROM COUNTRY       WHERE NAME='Japan'),
+        (SELECT   ID FROM STUDIO        WHERE NAME='Toho')
+);
 --
--- INSERT INTO MOVIE ( NAME, DURATION, COST, INCOME, RELEASE_DATE, DIRECTORID, CLASIFICATIONID, COUNTRYID, STUDIOID)
---     VALUES (
---         'Casablanca',
---         102,
---         878000.00,
---         10462500.00,
---         1942-11-26,
---         (SELECT   ID FROM DIRECTOR      WHERE NAME='Steven' and LASTNAME='Spielberg'),
---         (SELECT   ID FROM CLASIFICATION WHERE NAME=''),
---         (SELECT   ID FROM COUNTRY       WHERE NAME=''),
---         (SELECT   ID FROM STUDIO        WHERE NAME='')
--- );
+INSERT INTO MOVIE ( NAME, DURATION, COST, INCOME, RELEASE_DATE, DIRECTORID, CLASIFICATIONID, COUNTRYID, STUDIOID)
+    VALUES (
+        'Casablanca',
+        102,
+        878000.00,
+        10462500.00,
+        '1942-11-26',
+        (SELECT   ID FROM DIRECTOR      WHERE NAME='Michael' and LASTNAME= 'Curtiz'),
+        (SELECT   ID FROM CLASIFICATION WHERE NAME='PG'),
+        (SELECT   ID FROM COUNTRY       WHERE NAME='USA'),
+        (SELECT   ID FROM STUDIO        WHERE NAME='Warner bros')
+);
 --
--- INSERT INTO MOVIE ( NAME, DURATION, COST, INCOME, RELEASE_DATE, DIRECTORID, CLASIFICATIONID, COUNTRYID, STUDIOID)
---     VALUES (
---         'The Day the Earth Stood Still ',
---         92,
---         1200000.00,
---         1200000.00,
---         1951-09-17)
---         (SELECT   ID FROM DIRECTOR      WHERE NAME='Steven' and LASTNAME='Spielberg'),
---         (SELECT   ID FROM CLASIFICATION WHERE NAME=''),
---         (SELECT   ID FROM COUNTRY       WHERE NAME=''),
---         (SELECT   ID FROM STUDIO        WHERE NAME='')
--- );
+INSERT INTO MOVIE ( NAME, DURATION, COST, INCOME, RELEASE_DATE, DIRECTORID, CLASIFICATIONID, COUNTRYID, STUDIOID)
+    VALUES (
+        'The Day the Earth Stood Still ',
+        92,
+        1200000.00,
+        1200000.00,
+        '1951-09-17',
+        (SELECT   ID FROM DIRECTOR      WHERE NAME='Robert' and LASTNAME= 'Wise'),
+        (SELECT   ID FROM CLASIFICATION WHERE SHORT_NAME='PG-13'),
+        (SELECT   ID FROM COUNTRY       WHERE NAME='USA'),
+        (SELECT   ID FROM STUDIO        WHERE NAME='FOX')
+);
 --
--- INSERT INTO MOVIE (NAME, DURATION, COST, INCOME, RELEASE_DATE, DIRECTORID, CLASIFICATIONID, COUNTRYID, STUDIOID)
---     VALUES (
---         'Alien',
---         117,
---         11000000.00,
---         104931801.00,
---         1979-05-25,
---         (SELECT   ID FROM DIRECTOR      WHERE NAME='Steven' and LASTNAME='Spielberg'),
---         (SELECT   ID FROM CLASIFICATION WHERE NAME=''),
---         (SELECT   ID FROM COUNTRY       WHERE NAME=''),
---         (SELECT   ID FROM STUDIO        WHERE NAME='')
--- );
+INSERT INTO MOVIE (NAME, DURATION, COST, INCOME, RELEASE_DATE, DIRECTORID, CLASIFICATIONID, COUNTRYID, STUDIOID)
+    VALUES (
+        'Alien',
+        117,
+        11000000.00,
+        104931801.00,
+        '1979-05-25',
+        (SELECT   ID FROM DIRECTOR      WHERE NAME='Ridley' and LASTNAME= 'Scott'),
+        (SELECT   ID FROM CLASIFICATION WHERE SHORT_NAME='R'),
+        (SELECT   ID FROM COUNTRY       WHERE NAME='USA'),
+        (SELECT   ID FROM STUDIO        WHERE NAME='FOX')
+);
 --
 --
--- INSERT INTO MOVIE ( NAME, DURATION, COST, INCOME, RELEASE_DATE, DIRECTORID, CLASIFICATIONID, COUNTRYID, STUDIOID)
---     VALUES (
---         'La Pianiste',
---         131,
---         3000000.00,
---         9801375.00,
---         2002-03-28,
---         (SELECT   ID FROM DIRECTOR      WHERE NAME='Steven' and LASTNAME='Spielberg'),
---         (SELECT   ID FROM CLASIFICATION WHERE NAME=''),
---         (SELECT   ID FROM COUNTRY       WHERE NAME=''),
---         (SELECT   ID FROM STUDIO        WHERE NAME='')
--- );
+INSERT INTO MOVIE ( NAME, DURATION, COST, INCOME, RELEASE_DATE, DIRECTORID, CLASIFICATIONID, COUNTRYID, STUDIOID)
+    VALUES (
+        'La Pianiste',
+        131,
+        3000000.00,
+        9801375.00,
+        '2002-03-28',
+        (SELECT   ID FROM DIRECTOR      WHERE NAME='Michael' and LASTNAME= 'Haneke'),
+        (SELECT   ID FROM CLASIFICATION WHERE SHORT_NAME='R'),
+        (SELECT   ID FROM COUNTRY       WHERE NAME='France'),
+        (SELECT   ID FROM STUDIO        WHERE NAME='Arte France Cinéma')
+);
 --
--- INSERT INTO MOVIE (NAME, DURATION, COST, INCOME, RELEASE_DATE, DIRECTORID, CLASIFICATIONID, COUNTRYID, STUDIOID)
---     VALUES (
---         'Rashomon',
---         88,
---         250000.00,
---         96568.00,
---         1950-08-25,
---         (SELECT   ID FROM DIRECTOR      WHERE NAME='Steven' and LASTNAME='Spielberg'),
---         (SELECT   ID FROM CLASIFICATION WHERE NAME=''),
---         (SELECT   ID FROM COUNTRY       WHERE NAME=''),
---         (SELECT   ID FROM STUDIO        WHERE NAME='')
--- );
+INSERT INTO MOVIE (NAME, DURATION, COST, INCOME, RELEASE_DATE, DIRECTORID, CLASIFICATIONID, COUNTRYID, STUDIOID)
+    VALUES (
+        'Rashomon',
+        88,
+        250000.00,
+        96568.00,
+        '1950-08-25',
+        (SELECT   ID FROM DIRECTOR      WHERE NAME='Akira' and LASTNAME= 'Kurosawa'),
+        (SELECT   ID FROM CLASIFICATION WHERE SHORT_NAME='PG-13'),
+        (SELECT   ID FROM COUNTRY       WHERE NAME='Japan'),
+        (SELECT   ID FROM STUDIO        WHERE NAME='Toho')
+);
 --
--- INSERT INTO MOVIE (NAME, DURATION, COST, INCOME, RELEASE_DATE, DIRECTORID, CLASIFICATIONID, COUNTRYID, STUDIOID)
---     VALUES (
---         'Night of the Living Dead',
---         96,
---         114000.00,
---         30000000.00,
---         1968-10-01,
---         (SELECT   ID FROM DIRECTOR      WHERE NAME='Steven' and LASTNAME='Spielberg'),
---         (SELECT   ID FROM CLASIFICATION WHERE NAME=''),
---         (SELECT   ID FROM COUNTRY       WHERE NAME=''),
---         (SELECT   ID FROM STUDIO        WHERE NAME='')
--- );
+INSERT INTO MOVIE (NAME, DURATION, COST, INCOME, RELEASE_DATE, DIRECTORID, CLASIFICATIONID, COUNTRYID, STUDIOID)
+    VALUES (
+        'Night of the Living Dead',
+        96,
+        114000.00,
+        30000000.00,
+        '1968-10-01',
+        (SELECT   ID FROM DIRECTOR      WHERE NAME='George' and LASTNAME= 'A. Romero'),
+        (SELECT   ID FROM CLASIFICATION WHERE SHORT_NAME='R'),
+        (SELECT   ID FROM COUNTRY       WHERE NAME='USA'),
+        (SELECT   ID FROM STUDIO        WHERE NAME='Image Ten')
+);
 --
--- INSERT INTO MOVIE (NAME, DURATION, COST, INCOME, RELEASE_DATE, DIRECTORID, CLASIFICATIONID, COUNTRYID, STUDIOID)
---     VALUES (
---         'Das Cabinet des Dr. Caligari',
---         78,
---         18000.00,
---         18000.00,
---         1921-03-19,
---         (SELECT   ID FROM DIRECTOR      WHERE NAME='Steven' and LASTNAME='Spielberg'),
---         (SELECT   ID FROM CLASIFICATION WHERE NAME=''),
---         (SELECT   ID FROM COUNTRY       WHERE NAME=''),
---         (SELECT   ID FROM STUDIO        WHERE NAME='')
--- );
+INSERT INTO MOVIE (NAME, DURATION, COST, INCOME, RELEASE_DATE, DIRECTORID, CLASIFICATIONID, COUNTRYID, STUDIOID)
+    VALUES (
+        'Das Cabinet des Dr. Caligari',
+        78,
+        18000.00,
+        18000.00,
+        '1921-03-19',
+        (SELECT   ID FROM DIRECTOR      WHERE NAME='Robert' and LASTNAME= 'Wiene'),
+        (SELECT   ID FROM CLASIFICATION WHERE SHORT_NAME='R'),
+        (SELECT   ID FROM COUNTRY       WHERE NAME='Germany'),
+        (SELECT   ID FROM STUDIO        WHERE NAME='Decla-Bioscop')
+);
