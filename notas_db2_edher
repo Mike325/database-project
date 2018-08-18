@@ -1,0 +1,237 @@
+#pull docker
+sudo docker run -it -p 50000:50000 -e DB2INST1_PASSWORD=passbd2 -e LICENSE=accept ibmcom/db2express-c:latest bash
+
+#muestra contendores
+sudo docker ps -a
+
+#inicia el contenedor	<9e58a284b53e>
+sudo docker start -i <id_del _contenedor>
+
+#login con db2inst1
+su - db2inst1
+
+#entrar en cli
+db2cli
+
+#Crear base de datos SAMPLE
+db2sampl
+
+#Dentro de la linea de comandos (sin entrar a cli) 
+db2 connect to SAMPLE 
+#se conecta a la base de datos SAMPLE el output esperado tiene la forma:
+	[db2inst1@9e58a284b53e ~]$ db2 connect to SAMPLE
+	
+	Database Connection Information
+
+	 Database server        = DB2/LINUXX8664 10.5.5
+	 SQL authorization ID   = DB2INST1
+	 Local database alias   = SAMPLE
+#------------------------------------------------
+
+
+#el comando 
+db2
+#entra en modo interactivo y ya no requiere el comando db2 antes de cada comando, es util para SQL. Pero no todos los comandos funcionan. La forma de salir es con:
+quit
+#--------------------------------------------------
+
+
+
+#para detener el motor
+db2stop 
+#en caso de que tenga procesos pendientes se puede utilizar 
+db2stop --force
+#es util para reiniciar el motor. Naturalmente se puede iniciar con 
+db2start
+
+#para desconectarla de una base de datos se usa
+db2 terminate
+
+#para entrar en vim
+vi
+
+#para pegar en vim, tecla <Ins> seguido de SHIT+Ins
+
+
+#para crear una base de datos se usa
+db2 create db SOCCER
+#create: crea
+#db: data base
+#SOCCER: el nombre de la base de datos DEBE SER EN MAYUSCULAS (la version gratis tiene un bug que se puede evitar ponendo los nombres en mayusculas)
+
+
+#------------------------------------------------------
+
+
+#para cargar un archivo sql se utiliza:
+db2 -tvf soccer_test.sql 
+
+-t 
+#Use the semicolon (;) as the statement termination character. If this option is not set, the command line processor handles each line as a complete statement unless the line ends 
+	#with a space followed by a backslash( \).
+
+-v
+#Echo the command text to the standard output device.
+
+-f
+#Read command input from the file specified by file-name.
+
+#-----------------------------------------------------------
+
+
+
+#Para mostrar los datos de la bd se utiliza
+
+db2 select * from FUT.JUGADOR 
+
+#FUT es el scheme
+#JUGADOR es la tabla
+
+db2 select NOMBRE, ID FROM FUT.JUGADOR
+#slecciona las columnas NOMBRE y ID (en ese orden) 
+
+#Muestra el NOMBRE, APELLIDO y IDEQUIPO siempre que IDEQUIPO sea = 5 (esto funciona dentro de una tabla, se puede comparar varias tablas usando JOIN)
+db2 select NOMBRE, APELLIDO, IDEQUIPO FROM FUT.JUGADOR WHERE IDEQUIPO=5
+
+
+#Dentro de la cli (ingresando "db2") es posible interactuar con OS utilizando el prefijo "!"
+=>	!ls
+
+
+#se creo otro usuario con adduser
+usuario: otrouser
+pass: otrouser
+
+#PARA EVITAR EL BUG SE CREO OTRO USUARIO (NO FUNCIONA!!!)
+
+usuario: OTRO
+pass: OTRO
+
+
+
+#-----------------------------------------------------------
+
+#Despues de estar conectado a la base de datos se le puede dar parmisos a otro usuario 
+#con el comando
+
+#entrar en interactivo
+db2	
+
+#dar permisos
+GRANT CONNECT ON DATABASE TO USER otrouser
+#no es necesario especificar que base de datos estamos usando porque el usuario (db2inst1)
+#ya esta conectado a ella
+
+#
+GRANT CREATEIN ON SCHEMA FUT TO USER otrouser
+
+#
+GRANT DROPIN ON SCHEMA FUT TO USER otrouser
+
+#
+GRANT ALTERIN ON SCHEMA FUT TO USER otrouser
+
+#
+GRANT SELECT ON TABLE FUT.JUGADOR TO USER otrouser
+
+#
+GRANT CONTROL ON TABLE  FUT.JUGADOR TO USER otrouser
+
+#CREAR VISTA
+CREATE VIEW FUT."VISTA1" (JUGADOR, EQUIPO) AS SELECT J.NOMBRE AS JUGADOR, E.NOMBRE AS EQUIPO FROM FUT.JUGADOR AS J, FUT.EQUIPO AS E WHERE E.ID = 2; 
+
+#codigo a correr:
+db2 "CREATE VIEW FUT."VISTA1" (JUGADOR, EQUIPO) AS SELECT J.NOMBRE AS JUGADOR, E.NOMBRE AS EQUIPO FROM FUT.JUGADOR AS J, FUT.EQUIPO AS E WHERE E.ID = 2"
+
+#sue puede guardar en un sql y correrlo con -tvf pero necesitael ; final
+
+
+#Con la vista creada se puede invocar con un query:
+db2 "SELECT * FROM FUT.VISTA1"
+
+
+#CREAR TRIGGER EN UN ARCHIVO SQL
+CREATE TRIGGER FUT.JUGADOR_I AFTER INSERT ON FUT.JUGADOR REFERENCING NEW AS nr NEW TABLE AS nt FOR EACH ROW
+INSERT INTO FUT.EQUIPO VALUES(nr.id, 'CUERVOS','TOLEDO','12334567890',1);
+
+#CORRER EL SQL CON -tvf
+
+
+#crear indices en un sql
+CREATE INDEX FUT.JUGADOR_IX ON FUT.JUGADOR (NOMBRE) ALLOW REVERSE SCANS
+
+
+
+#************		Llaves Primarias		********************************
+#
+#***************************************************************************************
+
+
+#especificamos que la llave primary no puede ser NULL
+ALTER TABLE FUT.JUGADOR ALTER COLUMN ID SET NOT NULL;
+
+#REORGANIZAR LA TABLA		Corrige el error codigo 7
+db2 'REORG TABLE FUT.JUGADOR'
+
+#crea la llave primaria
+ALTER TABLE FUT.JUGADOR ADD CONSTRAINT JUGADOR_PK PRIMARY KEY (ID);
+
+
+#Se crea la llave primaria de la tabla equipo
+
+
+
+#************		Llaves Foranea			********************************
+#
+#***************************************************************************************
+
+
+db2 "alter table FUT.JUGADOR add constraint equipo_fk foreign key(idequipo) references FUT.EQUIPO(ID)"
+
+
+
+#************		Correr Procedimientos			***********************
+#
+#***************************************************************************************
+
+
+db2 -td@ -v -f myprocsum.sql
+
+#el procedimiento contiene:
+
+CREATE PROCEDURE FUT.myProcSuma (IN pin_valueA INT, IN pin_valueB INT, OUT pout_resultado INT)
+LANGUAGE SQL
+BEGIN 
+  SET pout_resultado = pin_valueA  + pin_valueB;
+
+END
+@
+
+
+#Notese que se agrego el squema FUT, ademas termina con @ porque el primer ";" pertece a sql y el final del 
+#procedimiento debe tener otro caracter; pude ser cualquier otro tipicamente "@". Para que bd2 lo reconosca
+#se debe agregar la opcion "-td@" 
+
+
+#************		Llamar Procedimientos			***********************
+#
+#***************************************************************************************
+
+
+db2 call "FUT.myProcSuma(5,6,?)"
+
+#El ultimo "?" le indica a db2 que el tercer parametro es la salida del procedimiento
+
+#La salida fue:
+
+
+  Value of output parameters
+  --------------------------
+  Parameter Name  : POUT_RESULTADO
+  Parameter Value : 11
+
+  Return Status = 0
+
+
+
+
