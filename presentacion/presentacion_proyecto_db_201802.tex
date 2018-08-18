@@ -126,7 +126,7 @@ db2 DESCRIBE TABLE MOVIEINDEX.MOVIE
 \end{figure}
 \end{frame}
 
-\section{A implementar}
+\section{Vistas}
 \begin{frame}{Vistas}
 	\begin{figure}
 
@@ -156,11 +156,73 @@ $\cdot$ $\cdot$ $\cdot$		&	$\cdot$ $\cdot$ $\cdot$		& $\cdot$ $\cdot$ $\cdot$  &
 	\end{figure}
 	
 \end{frame}
+\begin{frame}{Vistas}
+Para esta Base de Datos se implementaron 5 \textit{Vistas:}
+\begin{itemize}
+\item $COUNTRYID\_MOVIES:$ Permite ver las entradas de la tabla pelicula ordenadas en base al pa\'is de origen (alfab\'eticamente). El resultado de esta \textit{vista} se presenta en ejemplo en la figura \ref{vista1}.
+
+\item $TOP\_INCOME\_MOVIES:$ Permite ver una lista de las 10 peliculas con mayores ingresos.
+
+\item $LOWEST\_INCOME\_MOVIES:$ Permite ver una lista de las 10 peliculas con menores ingresos.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Vistas}
+\begin{itemize}
+\item $TOP\_EXPENSIVE\_MOVIES$: Muestra todas las entradas de la tabla \textit{MOVIE} ordenadas por su costo.
+\item $MOVIES\_REVENUES:$ Muestra una lista de las peliculas con mayores ganancias, un ejmplo de esta vista se muestra en la figura \ref{vista3}.
+\end{itemize}
+\end{frame}
+	
+
+\begin{frame}{Vistas}
+\begin{figure}
+    \centering
+  	\includegraphics[scale=0.3]{figures/screenshot_vista1.png}
+  	\caption{Vista de peliculas en base a su pa\'is de origen.} \label{vista1}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Vistas}
+\begin{figure}
+    \centering
+  	\includegraphics[scale=0.15]{figures/screenshot_vista2.png}
+  	\caption{Vista de peliculas en base sus Recaudaciones.} \label{vista2}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{Vistas}
+\begin{figure}
+    \centering
+  	\includegraphics[scale=0.15]{figures/screenshot_vista3.png}
+  	  	\caption{Vista de peliculas en base sus Ganancias.} \label{vista3}
+\end{figure}
+\end{frame}
+
+\section{Index}
+
+\begin{frame}[fragile]{Index}
+Para el resultado de las peticiones a las vistas mencionadas se implementaron los siguientes \textit{Index}:
+
+\begin{verbatim}
+CREATE INDEX COUNTRY_ID 	ON MOVIEINDEX.COUNTRY(NAME);
+CREATE INDEX INCOME 		ON MOVIEINDEX.MOVIE(INCOME);
+CREATE INDEX COST			ON MOVIENDEX.MOVIE(COST);
+CREATE INDEX MOVIE_INDEX	ON MOVIEINDEX.MOVIE(NAME);
+\end{verbatim}
+
+\end{frame}
+
+\section{A implementar}
+
 
 \begin{frame}{Triggers}
 \begin{itemize}
 \item[1.]Log el usiario de cada insert
-\item[2.]Cuando una pelicula salga de existencia el titulo se agrega a una vista de "Request"
+\item[2.]Cuando una pelicula salga de existencia el titulo se agrega a una vista de ``Request"
 
 \end{itemize}
 

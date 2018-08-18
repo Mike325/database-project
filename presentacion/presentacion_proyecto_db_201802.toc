@@ -2,5 +2,7 @@
 \beamer@sectionintoc {1}{Problem\'atica}{2}{0}{1}
 \beamer@sectionintoc {2}{Dise\~no de la base de datos.}{4}{0}{2}
 \beamer@sectionintoc {3}{Implementaci\'on}{6}{0}{3}
-\beamer@sectionintoc {4}{A implementar}{12}{0}{4}
-\beamer@sectionintoc {5}{DDL}{15}{0}{5}
+\beamer@sectionintoc {4}{Vistas}{12}{0}{4}
+\beamer@sectionintoc {5}{Index}{19}{0}{5}
+\beamer@sectionintoc {6}{A implementar}{21}{0}{6}
+\beamer@sectionintoc {7}{DDL}{23}{0}{7}

@@ -1,0 +1,10 @@
+\frametitle{Index}
+Para el resultado de las peticiones a las vistas mencionadas se implementaron los siguientes \textit{Index}:
+
+\begin{verbatim}
+CREATE INDEX COUNTRY_ID 	ON MOVIEINDEX.COUNTRY(NAME);
+CREATE INDEX INCOME 		ON MOVIEINDEX.MOVIE(INCOME);
+CREATE INDEX COST			ON MOVIENDEX.MOVIE(COST);
+CREATE INDEX MOVIE_INDEX	ON MOVIEINDEX.MOVIE(NAME);
+\end{verbatim}
+
