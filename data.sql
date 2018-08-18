@@ -89,7 +89,12 @@ INSERT INTO STUDIO (NAME, NATIONALITYID) VALUES ('Copys'       , ( SELECT ID FRO
 INSERT INTO STUDIO (NAME, NATIONALITYID) VALUES ('Disney'      , ( SELECT ID FROM COUNTRY WHERE NAME = 'USA'));
 INSERT INTO STUDIO (NAME, NATIONALITYID) VALUES ('Pixar'       , ( SELECT ID FROM COUNTRY WHERE NAME = 'USA'));
 INSERT INTO STUDIO (NAME, NATIONALITYID) VALUES ('Dream Works' , ( SELECT ID FROM COUNTRY WHERE NAME = 'USA'));
-
+INSERT INTO STUDIO (NAME, NATIONALITYID) VALUES ('Toho'        , ( SELECT ID FROM COUNTRY WHERE NAME = 'Japan'));                                                                
+INSERT INTO STUDIO (NAME, NATIONALITYID) VALUES ('Warner bros' , ( SELECT ID FROM COUNTRY WHERE NAME = 'USA'));                                                                
+INSERT INTO STUDIO (NAME, NATIONALITYID) VALUES ('Arte France Cinéma' , ( SELECT ID FROM COUNTRY WHERE NAME = 'France'));                                                                                                                                  
+INSERT INTO STUDIO (NAME, NATIONALITYID) VALUES ('Image Ten'    , ( SELECT ID FROM COUNTRY WHERE NAME = 'France'));                                                                                                                                  
+INSERT INTO STUDIO (NAME, NATIONALITYID) VALUES ('Decla-Bioscop', ( SELECT ID FROM COUNTRY WHERE NAME = 'Germany'));                                                                                                                                  
+                                                                                                                                          
 --MOVIES
 --data from themoviedb.org
 INSERT INTO MOVIE ( NAME, DURATION, COST, INCOME, RELEASE_DATE, DIRECTORID, CLASIFICATIONID, COUNTRYID, STUDIOID)
