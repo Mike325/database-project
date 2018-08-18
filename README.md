@@ -7,7 +7,7 @@ Crear una base de datos basada en algún trabajo final de otra materia, crear po
 - [x] Por lo menos 5 Tablas (tercera forma normal)
 - [x] 5 Vistas
 - [ ] 4 Triggers
-- [ ] Crear índices para cada Vista
+- [x] Crear índices para cada Vista
 - [ ] 5 Store procedures (usar cursores)
 - [x] Diseñar el diagrama entidad relación
 
