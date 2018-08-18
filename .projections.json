@@ -29,9 +29,6 @@
     "LICENSE": {
         "type": "License"
     },
-    "clang-format": {
-        "type": "ClangFormat"
-    },
     "*.tex": {
         "type": "Presentation"
     },
@@ -40,6 +37,9 @@
     },
     "tables.sql": {
         "type": "Tables"
+    },
+    "triggers.sql": {
+        "type": "Triggers"
     },
     "data.sql": {
         "type": "Data"
