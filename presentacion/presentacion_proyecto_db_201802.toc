@@ -5,5 +5,4 @@
 \beamer@sectionintoc {4}{Vistas}{12}{0}{4}
 \beamer@sectionintoc {5}{Index}{19}{0}{5}
 \beamer@sectionintoc {6}{Store Procedures}{21}{0}{6}
-\beamer@sectionintoc {7}{A implementar}{28}{0}{7}
-\beamer@sectionintoc {8}{DDL}{30}{0}{8}
+\beamer@sectionintoc {7}{Triggers}{28}{0}{7}

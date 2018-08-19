@@ -358,21 +358,103 @@ END P1
 \end{tiny}
 \end{frame}
 
-\section{A implementar}
-
+\section{Triggers}
 
 \begin{frame}{Triggers}
+Los 5 \textit{Triggers} considerados son:
 \begin{itemize}
-\item[1.]Log el usiario de cada insert
-\item[2.]Cuando una pelicula salga de existencia el titulo se agrega a una vista de ``Request"
+\item[1.]Validaci\'on de dato en actualizaciones para el campo \textit{INCOME} en la tabla \textit{MOVIE}.
+\item[2.]Validaci\'on de dato en inserciones para el campo \textit{INCOME} en la tabla \textit{MOVIE}.
+\item[3.]Validaci\'on de dato en inserciones para el campo \textit{COST} en la tabla \textit{MOVIE}.
+\item[4.]Validaci\'on de dato en actualizaciones para el campo \textit{COST} en la tabla \textit{MOVIE}.
+\item[5.]Validaci\'on de dato en inserciones para el campo \textit{DURATION} en la tabla \textit{MOVIE}.
 
 \end{itemize}
 
 \end{frame}
 
-\section{DDL}
-\begin{frame}
 
+\begin{frame}[fragile]{Triggers}
+Trigger 1:
+\begin{tiny}
+\begin{verbatim}
+CREATE OR REPLACE TRIGGER INCOME_MOVIE
+    BEFORE UPDATE OF INCOME ON MOVIEINDEX.MOVIE
+    REFERENCING OLD AS OLD_MOVIE
+                NEW AS NEW_MOVIE
+    FOR EACH ROW MODE DB2SQL
+    WHEN (NEW_MOVIE.INCOME < OLD_MOVIE.INCOME )
+    BEGIN ATOMIC
+        SIGNAL SQLSTATE '75001' ('INVALID INCOME, IT MOST BE HIGHER THAN THE LAST ONE')
+    END;
+\end{verbatim}
+\end{tiny}
 \end{frame}
+
+\begin{frame}[fragile]{Triggers}
+Trigger 2:
+\begin{tiny}
+\begin{verbatim}
+CREATE OR REPLACE TRIGGER VALID_INCOME
+    BEFORE INSERT ON MOVIEINDEX.MOVIE
+    REFERENCING NEW AS NEW_MOVIE
+    FOR EACH ROW MODE DB2SQL
+    WHEN (NEW_MOVIE.INCOME <= 0)
+    BEGIN ATOMIC
+        SIGNAL SQLSTATE '75001' ('INCOME MUST BE MORE THAN 0')
+    END;
+\end{verbatim}
+\end{tiny}
+\end{frame}
+
+\begin{frame}[fragile]{Triggers}
+Trigger 3:
+\begin{tiny}
+\begin{verbatim}
+CREATE OR REPLACE TRIGGER VALID_COST
+    BEFORE INSERT ON MOVIEINDEX.MOVIE
+    REFERENCING NEW AS NEW_MOVIE
+    FOR EACH ROW MODE DB2SQL
+    WHEN (NEW_MOVIE.COST <= 0)
+    BEGIN ATOMIC
+        SIGNAL SQLSTATE '75001' ('COST MUST BE MORE THAN 0')
+    END;
+\end{verbatim}
+\end{tiny}
+\end{frame}
+
+\begin{frame}[fragile]{Triggers}
+Trigger 4:
+\begin{tiny}
+\begin{verbatim}
+CREATE OR REPLACE TRIGGER COST_MOVIE
+    BEFORE UPDATE OF COST ON MOVIEINDEX.MOVIE
+    REFERENCING OLD AS OLD_MOVIE
+                NEW AS NEW_MOVIE
+    FOR EACH ROW MODE DB2SQL
+    WHEN (NEW_MOVIE.COST < OLD_MOVIE.COST )
+    BEGIN ATOMIC
+        SIGNAL SQLSTATE '75001' ('INVALID COST, IT MOST BE HIGHER THAN THE LAST ONE')
+    END;
+\end{verbatim}
+\end{tiny}
+\end{frame}
+
+\begin{frame}[fragile]{Triggers}
+Trigger 5:
+\begin{tiny}
+\begin{verbatim}
+CREATE OR REPLACE TRIGGER VALID_DURATION
+    BEFORE INSERT ON MOVIEINDEX.MOVIE
+    FOR EACH ROW MODE DB2SQL
+    WHEN (MOVIE.DURATION <= 0)
+    BEGIN ATOMIC
+        SIGNAL SQLSTATE '75001' ('DURATION MUST BE MORE THAN 0')
+    END;
+\end{verbatim}
+\end{tiny}
+\end{frame}
+
+
 \end{document}
  

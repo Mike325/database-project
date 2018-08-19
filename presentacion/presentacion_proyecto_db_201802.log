@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.8.6)  18 AUG 2018 23:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.8.6)  18 AUG 2018 23:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1339,7 +1339,7 @@ LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
 ] [4
 
 ]
-<figures/entidad_relacion_01.png, id=72, 1035.87pt x 806.01125pt>
+<figures/entidad_relacion_01.png, id=68, 1035.87pt x 806.01125pt>
 File: figures/entidad_relacion_01.png Graphic file (type png)
 <use figures/entidad_relacion_01.png>
 Package pdftex.def Info: figures/entidad_relacion_01.png  used on input line 47
@@ -1396,7 +1396,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 60--60
 [7
 
 ]
-<figures/screenshot_output_list_tables.png, id=91, 733.74126pt x 208.78pt>
+<figures/screenshot_output_list_tables.png, id=87, 733.74126pt x 208.78pt>
 File: figures/screenshot_output_list_tables.png Graphic file (type png)
 <use figures/screenshot_output_list_tables.png>
 Package pdftex.def Info: figures/screenshot_output_list_tables.png  used on inp
@@ -1405,7 +1405,7 @@ ut line 67.
  [8
 
  <./figures/screenshot_output_list_tables.png>]
-<figures/screenshot_output_movie_description.png, id=99, 791.95876pt x 287.0725
+<figures/screenshot_output_movie_description.png, id=95, 791.95876pt x 287.0725
 pt>
 File: figures/screenshot_output_movie_description.png Graphic file (type png)
 <use figures/screenshot_output_movie_description.png>
@@ -1420,19 +1420,19 @@ Overfull \hbox (9.48802pt too wide) in paragraph at lines 74--74
 [9
 
  <./figures/screenshot_output_movie_description.png>]
-<figures/screenshot_country_data.png, id=106, 401.5pt x 391.4625pt>
+<figures/screenshot_country_data.png, id=102, 401.5pt x 391.4625pt>
 File: figures/screenshot_country_data.png Graphic file (type png)
 <use figures/screenshot_country_data.png>
 Package pdftex.def Info: figures/screenshot_country_data.png  used on input lin
 e 101.
 (pdftex.def)             Requested size: 80.29857pt x 78.2911pt.
-<figures/screenshot_studio_data.png, id=107, 526.96875pt x 264.99pt>
+<figures/screenshot_studio_data.png, id=103, 526.96875pt x 264.99pt>
 File: figures/screenshot_studio_data.png Graphic file (type png)
 <use figures/screenshot_studio_data.png>
 Package pdftex.def Info: figures/screenshot_studio_data.png  used on input line
  101.
 (pdftex.def)             Requested size: 105.39188pt x 52.99706pt.
-<figures/screenshot_director_data.png, id=108, 1002.74625pt x 283.0575pt>
+<figures/screenshot_director_data.png, id=104, 1002.74625pt x 283.0575pt>
 File: figures/screenshot_director_data.png Graphic file (type png)
 <use figures/screenshot_director_data.png>
 Package pdftex.def Info: figures/screenshot_director_data.png  used on input li
@@ -1451,13 +1451,13 @@ Overfull \vbox (3.55542pt too high) detected at line 101
 
  <./figures/screenshot_country_data.png> <./figures/screenshot_studio_data.png>
  <./figures/screenshot_director_data.png>]
-<figures/screenshot_gender_data.png, id=117, 398.48875pt x 286.06876pt>
+<figures/screenshot_gender_data.png, id=113, 398.48875pt x 286.06876pt>
 File: figures/screenshot_gender_data.png Graphic file (type png)
 <use figures/screenshot_gender_data.png>
 Package pdftex.def Info: figures/screenshot_gender_data.png  used on input line
  127.
 (pdftex.def)             Requested size: 79.69633pt x 57.21272pt.
-<figures/screenshot_actor_data.png, id=118, 995.72pt x 454.69875pt>
+<figures/screenshot_actor_data.png, id=114, 995.72pt x 454.69875pt>
 File: figures/screenshot_actor_data.png Graphic file (type png)
 <use figures/screenshot_actor_data.png>
 Package pdftex.def Info: figures/screenshot_actor_data.png  used on input line 
@@ -1468,7 +1468,7 @@ Overfull \hbox (76.22641pt too wide) in paragraph at lines 127--127
 [][] 
  []
 
-<figures/screenshot_clasification_data.png, id=119, 689.57625pt x 197.73875pt>
+<figures/screenshot_clasification_data.png, id=115, 689.57625pt x 197.73875pt>
 File: figures/screenshot_clasification_data.png Graphic file (type png)
 <use figures/screenshot_clasification_data.png>
 Package pdftex.def Info: figures/screenshot_clasification_data.png  used on inp
@@ -1584,7 +1584,7 @@ Overfull \vbox (12.2129pt too high) detected at line 158
 ] [15
 
 ]
-<figures/screenshot_vista1.png, id=156, 961.5925pt x 251.94125pt>
+<figures/screenshot_vista1.png, id=152, 961.5925pt x 251.94125pt>
 File: figures/screenshot_vista1.png Graphic file (type png)
 <use figures/screenshot_vista1.png>
 Package pdftex.def Info: figures/screenshot_vista1.png  used on input line 186.
@@ -1593,7 +1593,7 @@ Package pdftex.def Info: figures/screenshot_vista1.png  used on input line 186.
  [16
 
  <./figures/screenshot_vista1.png>]
-<figures/screenshot_vista2.png, id=163, 1844.8925pt x 497.86pt>
+<figures/screenshot_vista2.png, id=159, 1844.8925pt x 497.86pt>
 File: figures/screenshot_vista2.png Graphic file (type png)
 <use figures/screenshot_vista2.png>
 Package pdftex.def Info: figures/screenshot_vista2.png  used on input line 194.
@@ -1602,7 +1602,7 @@ Package pdftex.def Info: figures/screenshot_vista2.png  used on input line 194.
  [17
 
  <./figures/screenshot_vista2.png>]
-<figures/screenshot_vista3.png, id=171, 1841.88126pt x 418.56375pt>
+<figures/screenshot_vista3.png, id=167, 1841.88126pt x 418.56375pt>
 File: figures/screenshot_vista3.png Graphic file (type png)
 <use figures/screenshot_vista3.png>
 Package pdftex.def Info: figures/screenshot_vista3.png  used on input line 203.
@@ -1718,9 +1718,34 @@ OVIEREVENUE FROM MOVIEINDEX.MOVIE WHERE MOVIENAME = MOVIEINDEX.MOVIE.NAME;[]
 
 ] [29
 
-] [30
+]
+\openout4 = `presentacion_proyecto_db_201802.vrb'.
 
-] [31
+ (./presentacion_proyecto_db_201802.vrb) [30
+
+]
+\openout4 = `presentacion_proyecto_db_201802.vrb'.
+
+
+(./presentacion_proyecto_db_201802.vrb) [31
+
+]
+\openout4 = `presentacion_proyecto_db_201802.vrb'.
+
+
+(./presentacion_proyecto_db_201802.vrb) [32
+
+]
+\openout4 = `presentacion_proyecto_db_201802.vrb'.
+
+
+(./presentacion_proyecto_db_201802.vrb) [33
+
+]
+\openout4 = `presentacion_proyecto_db_201802.vrb'.
+
+
+(./presentacion_proyecto_db_201802.vrb) [34
 
 ]
 \tf@nav=\write6
@@ -1732,27 +1757,28 @@ OVIEREVENUE FROM MOVIEINDEX.MOVIE WHERE MOVIENAME = MOVIEINDEX.MOVIE.NAME;[]
 \tf@snm=\write8
 \openout8 = `presentacion_proyecto_db_201802.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 377.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 377.
- (./presentacion_proyecto_db_201802.aux
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 459.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 459.
+
+(./presentacion_proyecto_db_201802.aux
 LaTeX Info: Redefining \. on input line 20.
 LaTeX Info: Redefining \% on input line 20.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 377.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 377.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 459.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 459.
 Package rerunfilecheck Info: File `presentacion_proyecto_db_201802.out' has not
  changed.
-(rerunfilecheck)             Checksum: B25AB722D2A29D6BFD9361A5302F3A53;385.
+(rerunfilecheck)             Checksum: 5452B44E09669B82621474D9345244C7;342.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 22521 strings out of 494747
- 438828 string characters out of 6176208
+ 22522 strings out of 494747
+ 439086 string characters out of 6176208
  511857 words of memory out of 5000000
- 25277 multiletter control sequences out of 15000+600000
+ 25263 multiletter control sequences out of 15000+600000
  13384 words of font info for 50 fonts, out of 8000000 for 9000
  107 hyphenation exceptions out of 8191
  61i,13n,89p,1835b,694s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1764,11 +1790,11 @@ texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmtt8.pfb>
-Output written on presentacion_proyecto_db_201802.pdf (31 pages, 551752 bytes).
+Output written on presentacion_proyecto_db_201802.pdf (34 pages, 555049 bytes).
 
 PDF statistics:
- 299 PDF objects out of 1000 (max. 8388607)
- 226 compressed objects within 3 object streams
- 74 named destinations out of 1000 (max. 500000)
- 167 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 310 PDF objects out of 1000 (max. 8388607)
+ 234 compressed objects within 3 object streams
+ 79 named destinations out of 1000 (max. 500000)
+ 159 words of extra memory for PDF output out of 10000 (max. 10000000)
 
