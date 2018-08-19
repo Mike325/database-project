@@ -41,7 +41,7 @@
     "triggers.sql": {
         "type": "Triggers"
     },
-    "procedures.sql": {
+    "procedures/*.sql": {
         "type": "Procedures"
     },
     "data.sql": {
