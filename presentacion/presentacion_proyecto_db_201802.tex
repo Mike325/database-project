@@ -205,7 +205,7 @@ Para esta Base de Datos se implementaron 5 \textit{Vistas:}
 \section{Index}
 
 \begin{frame}[fragile]{Index}
-Para el resultado de las peticiones a las vistas mencionadas se implementaron los siguientes \textit{Index}:
+Para agilizar el resultado de las peticiones a las vistas mencionadas se implementaron los siguientes \textit{Index}:
 
 \begin{verbatim}
 CREATE INDEX COUNTRY_ID 	ON MOVIEINDEX.COUNTRY(NAME);
@@ -214,6 +214,148 @@ CREATE INDEX COST			ON MOVIENDEX.MOVIE(COST);
 CREATE INDEX MOVIE_INDEX	ON MOVIEINDEX.MOVIE(NAME);
 \end{verbatim}
 
+\end{frame}
+
+\section{Store Procedures}
+	
+\begin{frame}{Store Procedures}
+Se utilizaron 5 procedimientos almacenados:
+\begin{itemize}
+\item[1.] Un procedimietno carga los datos a la tabla que vincula a los actores a cada pelicula.
+\item[2.] Un procedimiento carga los datos a la tabla que vincula a los generos con cada pelicula.
+\item[3.] Un procedimiento generar una lista de las peliculas con sus generos.
+\item[4.] Un procedimiento generar una lista de las peliculas con sus actores.
+\item[5.] Un procedimiento para calcular las ganancias de las peliculas.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Store Procedures}
+Procedimiento 1:
+\begin{tiny}
+\begin{verbatim}
+CREATE or REPLACE PROCEDURE MOVIEINDEX.MOVIE_ACTOR ( IN MOVIENAME VARCHAR(50), IN ACTORNAME VARCHAR(50) )
+LANGUAGE SQL
+P1:BEGIN
+    DECLARE ACTOR_ID int;
+    DECLARE MOVIE_ID int;
+
+    DECLARE cursor1 CURSOR FOR SELECT ID FROM MOVIEINDEX.MOVIE WHERE MOVIENAME = MOVIEINDEX.MOVIE.NAME;
+    DECLARE cursor2 CURSOR FOR SELECT ID FROM MOVIEINDEX.ACTOR WHERE ACTORNAME = MOVIEINDEX.ACTOR.NAME;
+    OPEN cursor1;
+        FETCH FROM cursor1 INTO ACTOR_ID;
+    CLOSE cursor1;
+    OPEN cursor2;
+        FETCH FROM cursor2 INTO MOVIE_ID;
+    CLOSE cursor2;
+
+    INSERT INTO MOVIEINDEX.ACTOR_MOVIE (ACTORDID, MOVIEDID) VALUES (ACTOR_ID, MOVIE_ID);
+END P1
+@
+\end{verbatim}
+\end{tiny}
+\end{frame}
+
+\begin{frame}[fragile]{Store Procedures}
+Procedimiento 2:
+\begin{tiny}
+\begin{verbatim}
+CREATE or REPLACE PROCEDURE MOVIEINDEX.MOVIE_GENDER ( IN MOVIENAME VARCHAR(50), IN GENDERNAME VARCHAR(50) )
+LANGUAGE SQL
+P1:BEGIN
+  DECLARE GENDER_ID int;
+  DECLARE MOVIE_ID int;
+
+  DECLARE cursor1 CURSOR FOR SELECT ID FROM MOVIEINDEX.MOVIE WHERE MOVIENAME = MOVIEINDEX.MOVIE.NAME;
+  DECLARE cursor2 CURSOR FOR SELECT ID FROM MOVIEINDEX.GENDER WHERE GENDERNAME = MOVIEINDEX.GENDER.NAME;
+    OPEN cursor1;
+        FETCH FROM cursor1 INTO GENDER_ID;
+    CLOSE cursor1;
+    OPEN cursor2;
+        FETCH FROM cursor2 INTO MOVIE_ID;
+    CLOSE cursor2;
+
+    INSERT INTO MOVIEINDEX.GENDER_MOVIE (GENDERID, MOVIEID) VALUES (GENDER_ID, MOVIE_ID);
+END P1
+@
+\end{verbatim}
+\end{tiny}
+\end{frame}
+
+\begin{frame}[fragile]{Store Procedures}
+Procedimiento 3:
+\begin{tiny}
+\begin{verbatim}
+CREATE or REPLACE PROCEDURE MOVIEINDEX.GENDERS_PER_MOVIE ( IN MOVIENAME VARCHAR(50), OUT GENDERS INT )
+LANGUAGE SQL
+P5:BEGIN
+    DECLARE MOVIEID int;
+
+    DECLARE cursor1 CURSOR FOR SELECT ID FROM MOVIEINDEX.MOVIE WHERE MOVIEINDEX.MOVIE.NAME = MOVIENAME;
+    OPEN cursor1;
+        FETCH FROM cursor1 INTO MOVIEID;
+    CLOSE cursor1;
+
+    DECLARE cursor2 CURSOR FOR SELECT COUNT(*) AS GENDERS_IN FROM MOVIEINDEX.MOVIE, 
+    MOVIEINDEX.GENDER_MOVIE, MOVIEINDEX.GENDER 
+    WHERE MOVIEINDEX.MOVIE.ID = MOVIEID AND 
+    MOVIEINDEX.GENDER_MOVIE.MOVIEDID = MOVIEID AND 
+    MOVIEINDEX.GENDER.ID = MOVIEINDEX.GENDER_MOVIE.GENDERID;
+    OPEN cursor2;
+        FETCH FROM cursor2 INTO GENDERS;
+    CLOSE cursor2;
+END P5
+@
+\end{verbatim}
+\end{tiny}
+\end{frame}
+
+
+\begin{frame}[fragile]{Store Procedures}
+Procedimiento 4:
+\begin{tiny}
+\begin{verbatim}
+CREATE or REPLACE PROCEDURE MOVIEINDEX.ACTOR_IN_MOVIE ( IN MOVIENAME VARCHAR(50), OUT ACTORS INT )
+LANGUAGE SQL
+P4:BEGIN
+    DECLARE MOVIEID int;
+
+    DECLARE cursor1 CURSOR FOR SELECT ID FROM MOVIEINDEX.MOVIE WHERE MOVIEINDEX.MOVIE.NAME = MOVIENAME;
+    OPEN cursor1;
+        FETCH FROM cursor1 INTO MOVIEID;
+    CLOSE cursor1;
+
+    DECLARE cursor2 CURSOR FOR SELECT COUNT(*) AS ACTORS_IN FROM MOVIEINDEX.MOVIE, 
+    MOVIEINDEX.ACTOR_MOVIE, 
+    MOVIEINDEX.ACTOR WHERE MOVIEINDEX.MOVIE.ID = MOVIEID AND 
+    MOVIEINDEX.ACTOR_MOVIE.MOVIEDID = MOVIEID AND 
+    MOVIEINDEX.ACTOR.ID = MOVIEINDEX.ACTOR_MOVIE.ACTORID;
+    OPEN cursor2;
+        FETCH FROM cursor2 INTO ACTORS;
+    CLOSE cursor2;
+END P4
+@
+\end{verbatim}
+\end{tiny}
+\end{frame}
+
+
+\begin{frame}[fragile]{Store Procedures}
+Procedimiento 5:
+\begin{tiny}
+\begin{verbatim}
+CREATE or REPLACE PROCEDURE MOVIEINDEX.REVENUE ( IN MOVIENAME VARCHAR(50), OUT TOTAL FLOAT )
+LANGUAGE SQL
+P1:BEGIN
+
+    DECLARE cursor1 CURSOR FOR SELECT SUM(INCOME - COST) AS MOVIEREVENUE FROM MOVIEINDEX.MOVIE WHERE MOVIENAME = MOVIEINDEX.MOVIE.NAME;
+    OPEN cursor1;
+        FETCH FROM cursor1 INTO TOTAL;
+    CLOSE cursor1;
+END P1
+@
+\end{verbatim}
+\end{tiny}
 \end{frame}
 
 \section{A implementar}
