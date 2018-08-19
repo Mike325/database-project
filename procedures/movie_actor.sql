@@ -1,4 +1,4 @@
--- --#SET TERMINATOR @
+SET TERMINATOR @
 -- Stored procedures
 
 --By setting the SCHEMA as FILM there's no need to refer to the SCHEME on each table creation
